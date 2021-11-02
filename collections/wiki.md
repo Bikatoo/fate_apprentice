@@ -44,7 +44,7 @@
 
 ### Set   
 ##### 存储`唯一性`元素的集合
-功能接口定义与<a href="#collection">Collection</a>一致
+功能接口定义与<a href="#collection">Collection</a>一致   
 
 ### <a name="iterator">Iterator</a>
 ##### 迭代器   
