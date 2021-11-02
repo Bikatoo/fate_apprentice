@@ -25,7 +25,23 @@
 >>+ retainAll(Collection): boolean 保留集合中包含在给定集合中的元素(取交集)，集合因此发生变化时返回true   
 >>+ clear(): void 删除集合中所有元素    
 >>+ stream(): Stream 返回以此集合为源的流对象   
->>+ parallelStream(): Stream 返回以此集合为源的并行流对象    
+>>+ parallelStream(): Stream 返回以此集合为源的`并行`流对象    
+
+### List   
+##### `有序`集合根接口，提供`随机(索引)`查询元素的特性，通常允许存储重复元素   
+> 提供以下功能接口定义：   
+>>+ [JDK8]replaceAll(UnaryOperator): void 使用给定运算符操作的结果`替换`每个元素   
+>>+ [JDK8]sort(Comparator): void 根据给定的比较器`原地排序`此集合   
+>>+ get(int): E 返回集合中给定位置的元素，index从0开始   
+>>+ set(int, E): E 用给定元素替换给定位置的元素，index从0开始，返回替换之前该位置上的元素   
+>>+ add(int, E): void 在集合给定位置插入给定元素，该位置及其后续元素向后移动   
+>>+ remove(int): E 删除此集合中给定位置的元素，后续元素向左移动，返回从集合中删除的元素   
+>>+ indexOf(Object): int 返回此列表中给定元素第一次出现的索引，如果不存在，返回-1   
+>>+ lastIndexOf(Object): int 返回此列表中给定元素最后一次出现的索引，如果不存在，返回-1   
+>>+ listIterator(): ListIterator 返回此集合中元素的列表迭代器   
+>>+ listIterator(int): ListIterator 返回此列表中元素的列表迭代器，从集合中的指定位置开始   
+>>+ subList(int, int): List 返回集合中指定区间`视图`，对指定视图所做的一切操作都会应用到集合上   
+
 ### <a name="iterator">Iterator</a>
 ##### 迭代器   
 > 提供了以下功能接口定义：   
