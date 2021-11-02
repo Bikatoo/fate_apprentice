@@ -9,7 +9,7 @@
 >>+ [JDK8]forEach(Consumer): void (对集合元素)按迭代顺序执行给定的操作
 >>+ spliterator(): Spliterator 返回泛型定义类型的拆分器
 
-### Collection
+### <a name="collection">Collection</a>
 ##### 集合框架的根接口，具有最大通用性
 > 提供一下功能接口定义：   
 >>+ size(): int 获取集合中的元素数   
@@ -41,6 +41,10 @@
 >>+ listIterator(): ListIterator 返回此集合中元素的列表迭代器   
 >>+ listIterator(int): ListIterator 返回此列表中元素的列表迭代器，从集合中的指定位置开始   
 >>+ subList(int, int): List 返回集合中指定区间`视图`，对指定视图所做的一切操作都会应用到集合上   
+
+### Set   
+##### 存储`唯一性`元素的集合
+功能接口定义与<a href="#collection">Collection</a>一致
 
 ### <a name="iterator">Iterator</a>
 ##### 迭代器   
