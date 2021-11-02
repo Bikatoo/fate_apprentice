@@ -46,6 +46,16 @@
 ##### 存储`唯一性`元素的集合
 功能接口定义与<a href="#collection">Collection</a>一致   
 
+### Queue   
+##### 队列容器根接口，通常以FIFO的方式排序   
+> 提供以下功能接口定义：   
+>>+ add(E): boolean 在不违反容量限制的前提下插入元素，成功时返回ture，空间不足时抛出`IllegalStateException`   
+>>+ offer(E): boolean 在不违反容量限制的前提下插入元素，成功时返回ture，失败返回false   
+>>+ remove(): E 检索并删除队列头，如果队列为空，抛出异常   
+>>+ poll(): E 检索并删除队列头，如果队列为空，返回null   
+>>+ element(): E 返回队列头，如果队列为空，抛出异常   
+>>+ peek(): E 返回队列头，如果队列为空，返回null   
+
 ### <a name="iterator">Iterator</a>
 ##### 迭代器   
 > 提供了以下功能接口定义：   
