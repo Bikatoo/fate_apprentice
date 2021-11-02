@@ -2,7 +2,7 @@
 
 ![collection](collection_frame.jpg)
 
-### Iterable
+### <a name="iterable">Iterable</a>
 ##### 定义可`for each loop`的对象   
 > 提供以下功能接口定义：   
 >>+ iterator(): <a href="#iterator">Iterator</a> 返回泛型定义类型的迭代器   
@@ -11,6 +11,7 @@
 
 ### <a name="collection">Collection</a>
 ##### 集合框架的根接口，具有最大通用性
+##### 直接继承自<a href="#iterable">Iterable</a>
 > 提供一下功能接口定义：   
 >>+ size(): int 获取集合中的元素数   
 >>+ isEmpty(): boolean 集合中是否无元素   
@@ -29,6 +30,7 @@
 
 ### List   
 ##### `有序`集合根接口，提供`随机(索引)`查询元素的特性，通常允许存储重复元素   
+##### 直接继承自<a href="#collection">Collection</a>   
 > 提供以下功能接口定义：   
 >>+ [JDK8]replaceAll(UnaryOperator): void 使用给定运算符操作的结果`替换`每个元素   
 >>+ [JDK8]sort(Comparator): void 根据给定的比较器`原地排序`此集合   
@@ -48,6 +50,7 @@
 
 ### Queue   
 ##### 队列容器根接口，通常以FIFO的方式排序   
+##### 直接继承自<a href="#collection">Collection</a>   
 > 提供以下功能接口定义：   
 >>+ add(E): boolean 在不违反容量限制的前提下插入元素，成功时返回ture，空间不足时抛出`IllegalStateException`   
 >>+ offer(E): boolean 在不违反容量限制的前提下插入元素，成功时返回ture，失败返回false   
@@ -56,7 +59,7 @@
 >>+ element(): E 返回队列头，如果队列为空，抛出异常   
 >>+ peek(): E 返回队列头，如果队列为空，返回null   
 
-### <a name="iterator">Iterator</a>
+### <a name="iterator">Iterator</a>   
 ##### 迭代器   
 > 提供了以下功能接口定义：   
 >>+ hasNext(): boolean 是否存在下一个元素   
