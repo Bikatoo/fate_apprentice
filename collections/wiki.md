@@ -18,13 +18,19 @@
 >>+ toArray(): Object[] 返回包含集合中所有元素的数组，如集合保证迭代顺序，则返回的数组也`保证迭代顺序`；返回的数组为`新数组`(非集合本身底层数据结构)，对数组的操作不影响原集合   
 >>+ toArray(T[]): T[] 返回包含集合中所有元素的数组，返回数组的元素类型与给定数组元素类型一致；给定数组长度不足时分配新的数组；足够容纳时返回给定数组，空闲位置填充null   
 >>+ add(E): boolean 添加元素到集合中，集合因此发生变化时返回true；因一些限制而无效更新时返回false    
->>+ remove(Object): boolean 从集合中删除给定元素(如果<a href="#contains">存在</a>多个，删除第一个)
-
+>>+ remove(Object): boolean 从集合中删除给定元素(如果<a href="#contains">存在</a>多个，删除第一个)   
+>>+ containsAll(Collection) boolean 集合中是否存在给定集合中的所有元素   
+>>+ addAll(Collection): boolean 将给定集合中的所有元素添加到集合中，集合因此发生变化时返回true   
+>>+ [JDK8]removeIf(Predicate): boolean 删除集合中满足给定断言的所有元素，集合因此发生变化时返回true   
+>>+ retainAll(Collection): boolean 保留集合中包含在给定集合中的元素(取交集)，集合因此发生变化时返回true   
+>>+ clear(): void 删除集合中所有元素    
+>>+ stream(): Stream 返回以此集合为源的流对象   
+>>+ parallelStream(): Stream 返回以此集合为源的并行流对象    
 ### <a name="iterator">Iterator</a>
 ##### 迭代器   
 > 提供了以下功能接口定义：   
 >>+ hasNext(): boolean 是否存在下一个元素   
 >>+ next(): E 返回下一个元素   
 >>+ remove(): void 删除迭代器当前位置的元素   
->>+ [JDK8] forEachRemaining(Consumer): void 按顺序执行给定操作    
+>>+ [JDK8]forEachRemaining(Consumer): void 按顺序执行给定操作    
 
