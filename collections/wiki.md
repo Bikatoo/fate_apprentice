@@ -28,7 +28,7 @@
 >>+ stream(): Stream 返回以此集合为源的流对象   
 >>+ parallelStream(): Stream 返回以此集合为源的`并行`流对象    
 
-### *List*   
+### <a name="list">*List*</a>   
 ##### `有序`集合根接口，提供`随机(索引)`查询元素的特性，通常允许存储重复元素   
 ##### 直接继承自<a href="#collection">*Collection*</a>   
 > 提供以下功能接口定义：   
@@ -61,6 +61,7 @@
 
 ### ArrayList   
 ##### 可变长度数组实现   
+##### 直接实现自<a href="#list">*List*</a>   
 > 具有以下特性：   
 >>+ 允许元素为null √   
 >>+ 允许重复元素 √   
@@ -78,6 +79,23 @@
 > 除对<a href="#collection">*Collection*</a>的实现外，提供以下额外功能实现：
 >>+ ensureCapacity(int): void 校验并扩容保证至少可以容纳给定的元素数量   
 >>+ trimToSize(): void 缩容到列表当前的元素数量   
+
+### LinkedList   
+##### 列表与双端队列的双链表实现   
+##### 直接实现自<a href="#list">*List*</a>、<a href="#deque">Deque</a>
+> 具有以下特性：
+>>+ 允许元素为null √
+>>+ 允许重复元素 √
+>>+ 保证存取顺序 √
+>>+ 线程安全 ×
+>>+ 插入(不指定位置)效率为O(1)，获取效率为O(n)
+>>+ 对应迭代器适用快失败(fast-fail)机制
+
+> 提供以下实例初始化方式：  
+>>+ LinkedList(): 无参构造，实际是空实现   
+>>+ LinkedList(Collection): 构造一个包含给定集合的元素的列表，保证迭代顺序   
+
+> 主要对<a href="#list">*List*</a>、<a href="#deque">*Deque*</a>定义的接口定义进行实现
 
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
