@@ -20,7 +20,7 @@
 >>+ toArray(T[]): T[] 返回包含集合中所有元素的数组，返回数组的元素类型与给定数组元素类型一致；给定数组长度不足时分配新的数组；足够容纳时返回给定数组，空闲位置填充null   
 >>+ add(E): boolean 添加元素到集合中，集合因此发生变化时返回true；因一些限制而无效更新时返回false    
 >>+ remove(Object): boolean 从集合中删除给定元素(如果<a href="#contains">存在</a>多个，删除第一个)   
->>+ containsAll(Collection) boolean 集合中是否存在给定集合中的所有元素   
+>>+ containsAll(Collection): boolean 集合中是否存在给定集合中的所有元素   
 >>+ addAll(Collection): boolean 将给定集合中的所有元素添加到集合中，集合因此发生变化时返回true   
 >>+ [JDK8]removeIf(Predicate): boolean 删除集合中满足给定断言的所有元素，集合因此发生变化时返回true   
 >>+ retainAll(Collection): boolean 保留集合中包含在给定集合中的元素(取交集)，集合因此发生变化时返回true   
@@ -70,7 +70,14 @@
 >>+ 插入(非随机插入)效率在不考虑扩容的情况下为O(1)，其他操作也在线性时间内运行   
 >>+ 对应迭代器适用快失败(fast-fail)机制
 
-> 提供以下功能实现：   
+> 提供以下实例初始化方式：  
+>>+ ArrayList(): 无参构造，为底层数组赋值一个默认的共享的空数组，此时其容量还为0，第一次调用扩容时将扩容为10   
+>>+ ArrayList(int): 指定初始容量。如果指定的初始容量为0，为底层数组赋值一个默认的共享的空数组，第一次调用扩容时将扩容为1   
+>>+ ArrayList(Collection): 构造一个包含给定集合的元素的列表，保证迭代顺序   
+
+> 除对<a href="#collection">*Collection*</a>的实现外，提供以下额外功能实现：
+>>+ ensureCapacity(int): void 校验并扩容保证至少可以容纳给定的元素数量   
+>>+ trimToSize(): void 缩容到列表当前的元素数量   
 
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
