@@ -34,7 +34,7 @@
 > 提供以下功能接口定义：   
 >>+ [JDK8]replaceAll(UnaryOperator): void 使用给定运算符操作的结果`替换`每个元素   
 >>+ [JDK8]sort(Comparator): void 根据给定的比较器`原地排序`此集合   
->>+ get(int): E 返回集合中给定位置的元素，index从0开始   
+>>+ <a name="list_get">get(int): E</a> 返回集合中给定位置的元素，index从0开始   
 >>+ set(int, E): E 用给定元素替换给定位置的元素，index从0开始，返回替换之前该位置上的元素   
 >>+ add(int, E): void 在集合给定位置插入给定元素，该位置及其后续元素向后移动   
 >>+ remove(int): E 删除此集合中给定位置的元素，后续元素向左移动，返回从集合中删除的元素   
@@ -112,6 +112,26 @@
 >>+ Vector(): 无参构造，创建一个初始容量为10，增量为0的容器实例
 >>+ Vector(int): 创建给定初始容量，增量为0的容器实例
 >>+ Vector(int, int): 创建给定初始容量，给定增量的容器实例
+
+> 除对<a href="#list">*List*</a>的实现外，提供以下额外功能实现：   
+>>+ ensureCapacity(int): void 校验并扩容保证至少可以容纳给定的元素数量   
+>>+ trimToSize(): void 缩容到列表当前的元素数量   
+>>+ copyInto(Object[]): void 将列表中的元素复制到给定的数组中   
+>>+ setSize(int): void 设置集合大小，如果新的大小大于当前，则填充空项；如果新的大小小于当前，则丢弃超出新的大小的部分的元素   
+>>+ capacity(): int 获取当前容量   
+>>+ elements(): Enumeration 获取集合的枚举，可用于迭代/枚举。可参考迭代器接口<a href="#iterator">*Iterator*</a>   
+>>+ indexOf(Object, int): int 从给定的索引向后检索，返回与给定对象相同的元素的索引，如不存在，返回-1   
+>>+ lastIndexOf(Object, int): int 从给定的索引向前检索，返回与给定对象相同的元素的索引，如不存在，返回-1   
+>>+ elementAt(int): E 获取指定索引位置的元素，功能上与<a href="#list">*List*</a>中的<a href="list_get">get(int)</a>方法一致   
+>>+ firstElement(): E 获取列表第一个元素   
+>>+ lastElement(): E 获取列表最后一个元素   
+>>+ setElementAt(E, int): void 使用给定元素替换给定索引位置的元素   
+>>+ removeElementAt(int): void 删除给定索引位置上的元素   
+>>+ insertElementAt(E, int): void 在给定索引位置插入给定的对象   
+>>+ addElement(E): void 在列表末尾插入给定对象   
+>>+ removeElement(Object): boolean 删除列表中第一个出现的与给定对象相同的元素   
+>>+ removeAllElements(): void 删除列表中所有元素   
+>>+ removeElementAt(int): void 删除给定索引位置的元素   
 
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
