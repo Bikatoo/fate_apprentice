@@ -122,7 +122,7 @@
 >>+ elements(): Enumeration 获取集合的枚举，可用于迭代/枚举。可参考迭代器接口<a href="#iterator">*Iterator*</a>   
 >>+ indexOf(Object, int): int 从给定的索引向后检索，返回与给定对象相同的元素的索引，如不存在，返回-1   
 >>+ lastIndexOf(Object, int): int 从给定的索引向前检索，返回与给定对象相同的元素的索引，如不存在，返回-1   
->>+ elementAt(int): E 获取指定索引位置的元素，功能上与<a href="#list">*List*</a>中的<a href="list_get">get(int)</a>方法一致   
+>>+ elementAt(int): E 获取指定索引位置的元素，功能上与<a href="#list">*List*</a>中的<a href="#list_get">get(int)</a>方法一致   
 >>+ firstElement(): E 获取列表第一个元素   
 >>+ lastElement(): E 获取列表最后一个元素   
 >>+ setElementAt(E, int): void 使用给定元素替换给定索引位置的元素   
