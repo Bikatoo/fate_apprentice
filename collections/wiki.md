@@ -97,7 +97,7 @@
 
 > 主要对<a href="#list">*List*</a>、<a href="#deque">*Deque*</a>定义的接口定义进行实现
 
-### Vector   
+### <a name="vector">Vector</a>   
 ##### 同步的可变长度数组实现   
 ##### [JDK1.2]直接实现自<a href="#list">*List*</a>
 > 具有以下特性：   
@@ -132,6 +132,27 @@
 >>+ removeElement(Object): boolean 删除列表中第一个出现的与给定对象相同的元素   
 >>+ removeAllElements(): void 删除列表中所有元素   
 >>+ removeElementAt(int): void 删除给定索引位置的元素   
+
+### Stack   
+##### 同步的基于数组的堆栈实现，JDK1.6之后给推荐使用Deque及其实现提供的堆栈容器   
+##### 直接继承自<a href="#vector">*Vector*</a>   
+> 具有以下特性：   
+>>+ 允许元素为null √
+>>+ 允许重复元素 √
+>>+ 保证存取顺序 √
+>>+ 线程安全 √
+>>+ 插入(非随机插入)效率为O(1)，其他操作也在线性时间内运行
+>>+ 对应迭代器适用快失败(fast-fail)机制
+
+> 提供以下实例初始化方式：
+>>+ Stack(): 无参构造，实例化一个空栈，实际为空实现
+
+> 除对<a href="#vector">*Vector*</a>的继承外，提供以下额外功能实现：   
+>>+ push(E): E 添加对象到栈顶，并返回栈顶该对象   
+>>+ pop(): E 移除并返回栈顶元素   
+>>+ peek(): E 返回栈顶元素   
+>>+ empty(): boolean 栈不包含任何元素时返回true   
+>>+ search(Object): int 自顶向下查找第一次出现的给定对象的位置，如不存在，返回-1   
 
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
