@@ -154,6 +154,7 @@
 >>+ empty(): boolean 栈不包含任何元素时返回true   
 >>+ search(Object): int 自顶向下查找第一次出现的给定对象的位置，如不存在，返回-1   
 
+
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
 > 提供了以下功能接口定义：   
