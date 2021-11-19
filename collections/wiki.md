@@ -174,6 +174,65 @@
 
 > 主要对<a href="#set">*Set*</a>定义的接口定义进行实现，实际底层存储数据的数据结构为`HashMap`，具体设计参照`HashMap`   
 
+### TreeSet
+##### 基于SortedMap(有序Maps实现，实际是`TreeMap`(SortedMap -> NavigableMap -> TreeMap))实现的有序集合实现
+##### 主要实现/继承链路为<a href="#set">*Set*</a>、*sortedSet*、*NavigableSet*   
+> 具有以下特性：
+>>+ 允许元素为null ×   
+>>+ 允许重复元素 ×   
+>>+ 保证存取顺序 × (允许自定义比较排序)   
+>>+ 线程安全 ×   
+>>+ 保证存取效率在log(n)
+>>+ 对应迭代器适用快失败(fast-fail)机制
+
+> 提供以下实例初始化方式：   
+>>+ TreeSet(): 无参构造，实例化一个空集合，实际底层实例化了一个`TreeMap`   
+>>+ TreeSet(Comparator): 使用给定的比较器初始化一个空集合   
+>>+ TreeSet(Collection): 构造一个包含给定集合的元素的集合   
+>>+ TreeSet(SortedSet): 构造一个包含给定`可排序集合SortedSet`中所有元素的集合   
+>>+ TreeSet(NavigableMap): 使用给定`NavigableMap`构造一个集合，该集合提供的所有实现均由此`NavigableMap`支持   
+
+> 除对<a href="#set">*Set*</a>定义的接口定义进行实现外增加对`SortedMap`以及`NavigableMap`定义的特性的实现，如下
+>>+ descendingIterator(): Iterator 返回集合定义类型的`降序`迭代器   
+>>+ descendingSet(): NavigableSet 返回集合的逆序视图，且该视图会被原集合的修改影响   
+>>+ subSet(E, boolean, E, boolean): NavigableSet 返回给定元素范围部分的视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ headSet(E, boolean): NavigableSet 返回集合中元素小于(或等于，可指定)给定元素的部分视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ tailSet(E, boolean): NavigableSet 返回集合中元素大于(或等于，可指定)给定元素的部分视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ subSet(E, E): SortedSet NavigableSet 返回给定元素范围(含头不含尾)部分的视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ headSet(E): SortedSet 返回集合中元素小于(不含)给定元素的部分视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ tailSet(E): SortedSet 返回集合中元素大于(不含)给定元素的部分视图，且该视图会被原集合的修改影响，不允许使用子视图在给定范围外插入元素   
+>>+ comparator(): Comparator 返回集合使用的排序比较器   
+>>+ first(): E 返回集合中最小元素   
+>>+ last(): E 返回集合中最大元素   
+>>+ lower(E): E 返回集合中小于(不含)给定元素的最大元素，不存在则为null   
+>>+ floor(E): E 返回集合中小于或等于给定元素的最大元素，不存在则为null
+>>+ ceiling(E): E 返回集合中大于或等于给定元素的最小元素，不存在则为null
+>>+ higher(E): E 返回集合中大于(不含)给定元素的最小元素，不存在则为null   
+>>+ pollFirst(): E 返回并删除集合中最小元素
+>>+ pollLast(): E 返回并删除集合中最大元素
+
+### 参考接口
+### <a name="comparator">*Comparator*</a>
+##### 比较器
+> 提供了以下功能接口定义：
+>>+ compare(T, T): int 比较两个参数T1,T2，返回负整数 => T1 < T2，返回0 => T1 = T2，返回正整数 => T1 > T2   
+>>+ reversed(): Comparator
+>>+ thenComparing(Comparator): Comparator
+>>+ thenComparing(Function, Comparator): Comparator
+>>+ thenComparing(Function): Comparator
+>>+ thenComparingInt(ToIntFunction): Comparator
+>>+ thenComparingLong(ToLongFunction): Comparator
+>>+ thenComparingDouble(ToDoubleFunction): Comparator
+>>+ reverseOrder(): Comparator
+>>+ naturalOrder(): Comparator
+>>+ nullsFirst(Comparator): Comparator
+>>+ nullsLast(Comparator): Comparator
+>>+ comparing(Function, Comparator): Comparator
+>>+ comparing(Function): Comparator
+>>+ comparingInt(ToIntFunction): Comparator
+>>+ comparingLong(ToLongFunction): Comparator
+>>+ comparingDouble(ToDoubleFunction): Comparator
+
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
 > 提供了以下功能接口定义：   
