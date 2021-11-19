@@ -147,7 +147,7 @@
 > 提供以下实例初始化方式：
 >>+ Stack(): 无参构造，实例化一个空栈，实际为空实现
 
-> 除对<a href="#vector">*Vector*</a>的继承外，提供以下额外功能实现：   
+> 除对<a href="#vector">Vector</a>的继承外，提供以下额外功能实现：   
 >>+ push(E): E 添加对象到栈顶，并返回栈顶该对象   
 >>+ pop(): E 移除并返回栈顶元素   
 >>+ peek(): E 返回栈顶元素   
@@ -166,8 +166,13 @@
 >>+ 对应迭代器适用快失败(fast-fail)机制
 
 > 提供以下实例初始化方式：   
+>>+ HashSet(): 无参构造，实例化一个空集合，实际底层实例化了一个`HashMap`   
+>>+ HashSet(Collection): 构造一个包含给定集合的元素的集合，底层以0.75的负载因子创建一个足够容纳给定集合中元素个数的`HashMap`   
+>>+ HashSet(int, float): 构造一个空集合，底层以给定的初始容量和负载因子初始化一个`HashMap`   
+>>+ HashSet(int): 构造一个空集合，底层以给定的初始容量初始化一个`HashMap`   
+>>+ HashSet(int, float, boolean): 供LinkedHashSet使用，以给定的的初始容量和负载因子初始化一个`LinkedHashMap`   
 
-
+> 主要对<a href="#set">*Set*</a>定义的接口定义进行实现，实际底层存储数据的数据结构为`HashMap`，具体设计参照`HashMap`   
 
 ### <a name="iterator">*Iterator*</a>   
 ##### 迭代器   
