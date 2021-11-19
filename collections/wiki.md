@@ -216,9 +216,9 @@
 ##### 比较器
 > 提供了以下功能接口定义：
 >>+ compare(T, T): int 比较两个参数T1,T2，返回负整数 => T1 < T2，返回0 => T1 = T2，返回正整数 => T1 > T2   
->>+ reversed(): Comparator
->>+ thenComparing(Comparator): Comparator
->>+ thenComparing(Function, Comparator): Comparator
+>>+ reversed(): Comparator 返回此比较器的反向排序实例   
+>>+ thenComparing(Comparator): Comparator 返回此比较器和给定比较器组合生成的新比较器，比较逻辑为当此比较器比较结果相等时，返回给定比较器比较的结果；反之直接返回结果   
+>>+ thenComparing(Function, Comparator): Comparator 返回此比较器和给定比较器组合生成的新比较器，给定比较器比较的字段由给定函数对象指定，比较逻辑与`thenComparing(Comparator): Comparator`一致
 >>+ thenComparing(Function): Comparator
 >>+ thenComparingInt(ToIntFunction): Comparator
 >>+ thenComparingLong(ToLongFunction): Comparator
